@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lexington Road Laser Wash</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background: url('images/background-bubbles.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #003366;
+      font-size: 2rem;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      z-index: -1;
+    }
+    header {
+      background: #004080;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3.5rem;
+      flex: 1;
+      text-align: center;
+      user-select: none;
+    }
+    .contact-info {
+      text-align: right;
+      font-size: 1.4rem;
+    }
+    .contact-info::before {
+      content: "Contact Info\a";
+      white-space: pre;
+      font-weight: bold;
+      display: block;
+    }
+    .logo-img {
+      height: 60px;
+      margin-left: 1rem;
+    }
+    .wave-divider {
+      background: url('https://svgshare.com/i/uUe.svg') no-repeat center;
+      background-size: cover;
+      height: 80px;
+      margin-top: -20px;
+    }
+    .welcome-title {
+      text-align: center;
+      color: #003366;
+      margin: 1rem auto 0.5rem;
+      font-size: 6rem;
+      user-select: none;
+    }
+    .welcome-box {
+      max-width: 900px;
+      margin: 0.5rem auto 2rem;
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-size: 1.4rem;
+      line-height: 2.2;
+    }
+    section, .map-container, footer {
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-around;
+      margin-top: 2rem;
+    }
+    .feature {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem 2rem;
+      flex: 1 1 200px;
+      text-align: center;
+      font-size: 1.9rem;
+    }
+    .feature h3 {
+      margin-top: 0;
+      color: #0066cc;
+    }
+    h2 {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 1rem;
+      font-size: 3.2rem;
+      user-select: none;
+    }
+    .info-box {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem 2rem;
+      max-width: 900px;
+      margin: 1rem auto;
+      font-size: 1.9rem;
+      line-height: 2.1;
+      text-align: center;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 600px;
+      border-radius: 12px;
+      border: 0;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 1.8rem;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #004080;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 2.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .star-rating::after {
+      content: "\2605\2605\2605\2605\2605";
+      color: gold;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+    .menu-image {
+      display: block;
+      margin: 0 auto 1rem;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/logo.webp" alt="Laser Wash Logo" class="logo-img">
+    <h1>Lexington Road Laser Wash</h1>
+    <div class="contact-info">
+      550 E Lexington Road<br>
+      859-265-1635
+    </div>
+  </header>
+  <div class="wave-divider"></div>
+  <h2 class="welcome-title">Welcome!</h2>
+  <div class="welcome-box">
+    Get the ultimate clean with our state-of-the-art touchless laser wash. Fast, safe, and effective — experience the difference today!
+  </div>
+  <section>
+    <h2>Why Choose Us?</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Touchless Technology</h3>
+        No brushes, no scratches — just clean cars.
+      </div>
+      <div class="feature">
+        <h3>Eco-Friendly</h3>
+        We recycle water and use biodegradable soaps.
+      </div>
+      <div class="feature">
+        <h3>Fast & Easy</h3>
+        Get in and out in minutes, Open 24/7!
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Wash Menu</h2>
+    <img src="images/Carwash Menu.png" alt="Carwash Menu" class="menu-image">
+  </section>
+  <section>
+    <h2>Customer Reviews</h2>
+    <div class="info-box">
+      <p class="star-rating"><strong>Amanda Reed:</strong> "Great wash and quick service. My car looks brand new every time!"</p>
+      <p class="star-rating"><strong>Dylan Walter:</strong> "Excellent service and very convenient location. Highly recommend!"</p>
+      <p class="star-rating"><strong>Christopher Szczotka:</strong> "Best car wash in town. The touchless system works perfectly."</p>
+    </div>
+  </section>
+  <section>
+    <h2>Our Location</h2>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019!2d-84.5013!3d38.0528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMzjCsDAzJzA5LjAiTiA4NMKwMzAnMDMuMiJX!5e0!3m2!1sen!2sus!4v1634222622345!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 Lexington Road Laser Wash | All Rights Reserved
+  </footer>
+</body>
+</html>
