@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Baloo 2', cursive;
-      background: url('images/background-bubbles.png') no-repeat center center fixed;
+      background: url('background - bubbles.png') no-repeat center center fixed;
       background-size: cover;
       color: #003366;
       font-size: 2rem;
@@ -34,17 +34,20 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      transition: padding 0.3s, background 0.3s;
     }
     header h1 {
       margin: 0;
-      font-size: 5rem;
+      font-size: 6.65rem;
       flex: 1;
       text-align: center;
       user-select: none;
+      transition: font-size 0.3s;
     }
     .contact-info {
       text-align: right;
       font-size: 1.4rem;
+      transition: font-size 0.3s;
     }
     .contact-info::before {
       content: "Contact Info\a";
@@ -53,9 +56,28 @@
       display: block;
     }
     .logo-img {
-      height: 120px;
-      width: auto;
-      margin-left: 1rem;
+      height: 180px;
+      width: 180px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: white;
+      padding: 6px;
+      box-shadow: 0 0 0 2px white;
+      display: block;
+      transition: height 0.3s, width 0.3s;
+    }
+    header.shrink {
+      padding: 0.5rem 2rem;
+    }
+    header.shrink h1 {
+      font-size: 3rem;
+    }
+    header.shrink .logo-img {
+      height: 90px;
+      width: 90px;
+    }
+    header.shrink .contact-info {
+      font-size: 0.9rem;
     }
     .wave-divider {
       background: url('https://svgshare.com/i/uUe.svg') no-repeat center;
@@ -105,6 +127,9 @@
       margin-top: 0;
       color: #0066cc;
     }
+    .info-box h3 {
+      color: #0066cc;
+    }
     h2 {
       text-align: center;
       color: #003366;
@@ -122,6 +147,7 @@
       font-size: 1.9rem;
       line-height: 2.1;
       text-align: center;
+      position: relative;
     }
     .map-container iframe {
       width: 100%;
@@ -130,45 +156,146 @@
       border: 0;
       display: block;
     }
-    footer {
-      background-color: #003366;
-      color: white;
+    /* Navy Blue Full-Width Box for Wash Menu */
+    .wash-menu-full-bg {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: #002147;
+      padding: 3rem 0;
+      z-index: 2;
+    }
+    .wash-menu-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      border-radius: 18px;
+    }
+    .wash-menu-inner h2 {
+      font-size: 4rem !important;
+      font-weight: bold !important;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+      color: #fff !important;
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 1.8rem;
     }
-    .back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: #004080;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 2.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    .star-rating::after {
-      content: "\2605\2605\2605\2605\2605";
-      color: gold;
-      display: block;
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
+    .wash-menu-inner * {
+      color: #fff !important;
     }
     .menu-image {
       display: block;
       margin: 0 auto 1rem;
-      max-width: 100%;
-      width: 800px;
+      width: 100%;
+      max-width: 800px;
+      min-width: 320px;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.30);
+    }
+    @media (max-width: 600px) {
+      .menu-image {
+        max-width: 98vw;
+      }
+    }
+    /* Review Carousel Styles */
+    .review-carousel {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      min-height: 110px;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+    }
+    .review-carousel .review {
+      display: none;
+      transition: opacity 0.5s;
+      font-size: 1.6rem;
+    }
+    .review-carousel .review.active {
+      display: block;
+      opacity: 1;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 2;
+      opacity: 0.8;
+      transition: background 0.2s;
+    }
+    .carousel-btn:hover {
+      background: #003366;
+    }
+    .carousel-btn.prev {
+      left: 10px;
+    }
+    .carousel-btn.next {
+      right: 10px;
+    }
+    /* Full-Width Blue Box for Location & Footer */
+    .location-full-bg {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: #0066cc; /* Bright blue from Touchless Technology */
+      padding: 3rem 0 0 0;
+      z-index: 2;
+      min-height: 400px;
+    }
+    .location-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .location-inner h2,
+    .location-inner * {
+      color: #fff !important;
+    }
+    .location-inner footer {
+      background: transparent;
+      color: #fff;
+      box-shadow: none;
+      margin-top: 2.5rem;
+      font-size: 1.8rem;
+      padding-bottom: 2rem;
+      max-width: 900px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Fullwidth Google Map */
+    .fullwidth-map {
+      width: 100vw;
+      margin-left: -50vw;
+      left: 50%;
+      position: relative;
+      border: none;
+      height: 600px;
+      display: block;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    @media (max-width: 700px) {
+      .fullwidth-map {
+        height: 350px;
+      }
     }
     /* Fade-in effect */
     .fade-in-section {
@@ -189,7 +316,8 @@
     <h1>Lexington Road Laser Wash</h1>
     <div class="contact-info">
       550 East Lexington Road<br>
-      Danville, KY 40422
+      Danville, KY 40422<br>
+      859-265-1635
     </div>
   </header>
   <div class="wave-divider fade-in-section"></div>
@@ -210,13 +338,31 @@
       </div>
       <div class="feature">
         <h3>Fast & Easy</h3>
-        Get in and out in minutes, Open 24/7!
+        Get in and out in minutes,<br>Open 24/7!
       </div>
     </div>
   </section>
+  <!-- Three new info boxes above the Wash Menu -->
+  <div class="info-box fade-in-section">
+    <h3>Modern Equipment</h3>
+    <p>Our facility features the latest in car wash technology to ensure a spotless finish—every time.</p>
+  </div>
+  <div class="info-box fade-in-section">
+    <h3>Safe for Your Vehicle</h3>
+    <p>Touchless washing means no brushes, no scratches, and no worries about your car’s exterior.</p>
+  </div>
+  <div class="info-box fade-in-section">
+    <h3>Convenient Payment Options</h3>
+    <p>Pay easily with cash, credit, or tap-to-pay systems—whatever works best for you!</p>
+  </div>
+  <!-- Navy Blue Full-Width Box for Wash Menu -->
   <section class="fade-in-section">
-    <h2>Wash Menu</h2>
-    <img src="Menu.png" alt="Carwash Menu" class="menu-image">
+    <div class="wash-menu-full-bg">
+      <div class="wash-menu-inner">
+        <h2>Wash Menu</h2>
+        <img src="Menu.png" alt="Carwash Menu" class="menu-image">
+      </div>
+    </div>
   </section>
   <section class="fade-in-section">
     <h2>Customer Reviews</h2>
@@ -226,20 +372,48 @@
       <p class="star-rating"><strong>Christopher:</strong> "Best car wash in town. The touchless system works perfectly."</p>
     </div>
   </section>
+  <!-- Google Review Carousel with white info box background -->
   <section class="fade-in-section">
-    <h2>Our Location</h2>
-    <div class="map-container">
-      <iframe 
-        src="https://www.google.com/maps?q=550+East+Lexington+Road,+Danville,+KY+40422&output=embed" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+    <h2>Google Reviews</h2>
+    <div class="info-box">
+      <div class="review-carousel" id="review-carousel">
+        <div class="review active">
+          <p class="star-rating"><strong>James B.:</strong> "Super convenient and gives my car a great wash every time!"</p>
+        </div>
+        <div class="review">
+          <p class="star-rating"><strong>Linda S.:</strong> "Love the touchless system—fast, easy, and my SUV sparkles!"</p>
+        </div>
+        <div class="review">
+          <p class="star-rating"><strong>Mike W.:</strong> "Affordable prices and open 24/7. Highly recommend!"</p>
+        </div>
+        <div class="review">
+          <p class="star-rating"><strong>Susan R.:</strong> "Clean, friendly, and my go-to spot for a quick wash!"</p>
+        </div>
+        <button class="carousel-btn prev" aria-label="Previous Review">&#8592;</button>
+        <button class="carousel-btn next" aria-label="Next Review">&#8594;</button>
+      </div>
     </div>
   </section>
-  <footer class="fade-in-section">
-    &copy; 2025 Lexington Road Laser Wash | All Rights Reserved
-  </footer>
+  <!-- Full-Width Blue Box for Location & Footer with fullwidth Google Map -->
+  <div class="location-full-bg">
+    <div class="location-inner">
+      <section class="fade-in-section">
+        <h2>Our Location</h2>
+      </section>
+    </div>
+    <iframe 
+      class="fullwidth-map"
+      src="https://www.google.com/maps?q=550+East+Lexington+Road,+Danville,+KY+40422&output=embed" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <div class="location-inner">
+      <footer class="fade-in-section">
+        &copy; 2025 Lexington Road Laser Wash | All Rights Reserved
+      </footer>
+    </div>
+  </div>
   <script>
     // Fade-in on scroll
     document.addEventListener("DOMContentLoaded", function() {
@@ -261,6 +435,46 @@
 
       faders.forEach(fader => {
         appearOnScroll.observe(fader);
+      });
+
+      // Review Carousel Functionality
+      const carousel = document.getElementById('review-carousel');
+      if (carousel) {
+        const reviews = carousel.querySelectorAll('.review');
+        const prevBtn = carousel.querySelector('.carousel-btn.prev');
+        const nextBtn = carousel.querySelector('.carousel-btn.next');
+        let current = 0;
+
+        function showReview(idx) {
+          reviews.forEach((review, i) => {
+            review.classList.toggle('active', i === idx);
+          });
+        }
+
+        prevBtn.addEventListener('click', function() {
+          current = (current - 1 + reviews.length) % reviews.length;
+          showReview(current);
+        });
+
+        nextBtn.addEventListener('click', function() {
+          current = (current + 1) % reviews.length;
+          showReview(current);
+        });
+
+        setInterval(function() {
+          current = (current + 1) % reviews.length;
+          showReview(current);
+        }, 7000);
+      }
+
+      // Shrink header on scroll
+      document.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if(window.scrollY > 50) {
+          header.classList.add('shrink');
+        } else {
+          header.classList.remove('shrink');
+        }
       });
     });
   </script>
