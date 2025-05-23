@@ -11,14 +11,14 @@
       font-family: 'Baloo 2', cursive;
       color: #003366;
       font-size: 2rem;
-      background: #fff; /* No bubble background */
+      background: #fff;
     }
     header {
       background: #004080;
       color: white;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       flex-wrap: wrap;
       padding: 1.5rem 2rem;
       position: sticky;
@@ -28,14 +28,66 @@
       width: 100%;
       box-sizing: border-box;
     }
+    .header-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex: 2 1 0%;
+    }
+    .open247-badge {
+      display: none;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #FFD700;
+      letter-spacing: 2px;
+      margin: 0 1rem;
+      white-space: nowrap;
+      transition: opacity 0.3s;
+    }
+    header.shrink .open247-badge {
+      display: inline-block;
+      opacity: 1;
+      animation: fadeIn247 0.5s;
+    }
+    @keyframes fadeIn247 {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: none;}
+    }
     header h1 {
       margin: 0;
-      font-size: 6.65rem;
-      flex: 1;
+      font-size: 4.5rem;
       text-align: center;
+      flex: 0 1 100%;
       user-select: none;
       transition: font-size 0.3s;
-      min-width: 260px;
+      min-width: 0;
+      background: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+    }
+    header.shrink h1 {
+      font-size: 2.8rem;
+    }
+    @media (max-width: 700px) {
+      .header-title-row {
+        flex-direction: column;
+      }
+      .open247-badge {
+        margin: 0.5rem 0;
+        font-size: 1.3rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header.shrink h1 {
+        font-size: 1.2rem;
+      }
     }
     .contact-info {
       text-align: right;
@@ -44,6 +96,11 @@
       word-break: break-word;
       transition: font-size 0.3s;
       margin-left: 2rem;
+      align-self: flex-start;
+      flex: 1 0 auto;
+      order: 3;
+      padding-left: 2rem;
+      line-height: 1.5;
     }
     .contact-info::before {
       content: "Contact Info\a";
@@ -71,20 +128,23 @@
         text-align: center;
       }
       .contact-info {
-        align-self: flex-end;
+        text-align: center;
+        align-self: center;
         margin-left: 0;
         margin-top: 1rem;
-        text-align: center;
+        order: 4;
+        padding-left: 0;
       }
       .logo-img {
         margin-bottom: 0.5rem;
       }
+      .header-title-row {
+        flex-direction: column;
+        width: 100%;
+      }
     }
     header.shrink {
       padding: 0.5rem 2rem;
-    }
-    header.shrink h1 {
-      font-size: 3rem;
     }
     header.shrink .logo-img {
       height: 90px;
@@ -118,7 +178,7 @@
     }
     section, .map-container {
       max-width: 900px;
-      margin: 0 auto 2rem;
+      margin: 0 auto 0;
       padding: 0 1rem;
     }
     .features {
@@ -178,8 +238,9 @@
       margin-left: -50vw;
       margin-right: -50vw;
       background: #002147;
-      padding: 3rem 0;
+      padding: 3rem 0 0 0; /* Remove bottom padding */
       z-index: 2;
+      margin-bottom: 0;
     }
     .wash-menu-inner {
       max-width: 900px;
@@ -248,14 +309,10 @@
       opacity: 0.8;
       transition: background 0.2s;
     }
+    .carousel-btn.prev { left: -8px; }
+    .carousel-btn.next { right: -8px; }
     .carousel-btn:hover {
       background: #003366;
-    }
-    .carousel-btn.prev {
-      left: 10px;
-    }
-    .carousel-btn.next {
-      right: 10px;
     }
     .fullwidth-map {
       width: 100vw;
@@ -268,11 +325,50 @@
       max-width: none;
       border-radius: 0;
       box-shadow: none;
+      margin-top: 0;
     }
     @media (max-width: 700px) {
       .fullwidth-map {
         height: 350px;
       }
+    }
+    /* Old Glory Red background from below Wash Menu to Map */
+    .old-glory-red-bg {
+      width: 100vw;
+      margin-left: -50vw;
+      left: 50%;
+      position: relative;
+      background: #B31942;
+      padding: 0;
+      z-index: 2;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    .google-reviews-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem 2.5rem 1rem; /* Remove top padding */
+    }
+    .reviews-title {
+      text-align: center;
+      color: #fff;
+      font-size: 3.8rem;
+      margin-bottom: 1.3rem;
+    }
+    .google-reviews-inner .info-box {
+      background: #fff;
+      color: #003366;
+    }
+    .review-carousel .star-rating {
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+    .reviewer-name {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #B31942;
+      margin-top: 0.2rem;
     }
     .footer-bar {
       background: #004080;
@@ -290,6 +386,55 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 2rem;
+    }
+    .footer-btn {
+      background: #fff;
+      color: #003366;
+      padding: 0.9rem 2.2rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .footer-btn:hover,
+    .footer-btn:focus {
+      background: #FFD700;
+      color: #004080;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+      outline: none;
+    }
+    .footer-center-text {
+      flex: 1;
+      text-align: center;
+      font-size: 1.1em;
+    }
+    .left-btn {
+      order: 0;
+    }
+    .right-btn {
+      order: 2;
+    }
+    @media (max-width: 700px) {
+      .footer-bar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem 0;
+      }
+      .footer-btn {
+        margin: 0.1rem 0;
+        width: 92vw;
+        max-width: 360px;
+      }
+      .footer-center-text {
+        font-size: 1em;
+        padding: 0.5rem 0;
+      }
     }
     .fade-in-section {
       opacity: 0;
@@ -306,7 +451,11 @@
 <body>
   <header class="fade-in-section">
     <img src="Laser Wash Logo.png" alt="Laser Wash Logo" class="logo-img">
-    <h1>Lexington Road Laser Wash</h1>
+    <div class="header-title-row">
+      <span class="open247-badge" aria-label="Open 24/7!">OPEN 24/7!</span>
+      <h1>Lexington Road Laser Wash</h1>
+      <span class="open247-badge" aria-label="Open 24/7!">OPEN 24/7!</span>
+    </div>
     <div class="contact-info">
       550 East Lexington Road<br>
       Danville, KY 40422<br>
@@ -355,48 +504,49 @@
       </div>
     </div>
   </section>
-  <section class="fade-in-section">
-    <h2>Customer Reviews</h2>
-    <div class="info-box">
-      <p class="star-rating"><strong>Amanda:</strong> "Great wash and quick service. My car looks brand new every time!"</p>
-      <p class="star-rating"><strong>Dylan:</strong> "Excellent service and very convenient location. Highly recommend!"</p>
-      <p class="star-rating"><strong>Christopher:</strong> "Best car wash in town. The touchless system works perfectly."</p>
-    </div>
-  </section>
-  <section class="fade-in-section">
-    <h2>Google Reviews</h2>
-    <div class="info-box">
-      <div class="review-carousel" id="review-carousel">
-        <div class="review active">
-          <div class="stars">★★★★★</div>
-          <p class="star-rating"><strong>James B.:</strong> "Super convenient and gives my car a great wash every time!"</p>
+  <!-- Old Glory Red background from below Wash Menu to Map -->
+  <div class="old-glory-red-bg">
+    <section class="fade-in-section google-reviews-inner">
+      <h2 class="reviews-title">Google Reviews</h2>
+      <div class="info-box">
+        <div class="review-carousel" id="review-carousel">
+          <div class="review active">
+            <div class="stars">★★★★★</div>
+            <p class="star-rating">"Super convenient and gives my car a great wash every time!"</p>
+            <div class="reviewer-name">James B.</div>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p class="star-rating">"Love the touchless system—fast, easy, and my SUV sparkles!"</p>
+            <div class="reviewer-name">Linda S.</div>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p class="star-rating">"Affordable prices and open 24/7. Highly recommend!"</p>
+            <div class="reviewer-name">Mike W.</div>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p class="star-rating">"Clean, friendly, and my go-to spot for a quick wash!"</p>
+            <div class="reviewer-name">Susan R.</div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous Review">&#8592;</button>
+          <button class="carousel-btn next" aria-label="Next Review">&#8594;</button>
         </div>
-        <div class="review">
-          <div class="stars">★★★★★</div>
-          <p class="star-rating"><strong>Linda S.:</strong> "Love the touchless system—fast, easy, and my SUV sparkles!"</p>
-        </div>
-        <div class="review">
-          <div class="stars">★★★★★</div>
-          <p class="star-rating"><strong>Mike W.:</strong> "Affordable prices and open 24/7. Highly recommend!"</p>
-        </div>
-        <div class="review">
-          <div class="stars">★★★★★</div>
-          <p class="star-rating"><strong>Susan R.:</strong> "Clean, friendly, and my go-to spot for a quick wash!"</p>
-        </div>
-        <button class="carousel-btn prev" aria-label="Previous Review">&#8592;</button>
-        <button class="carousel-btn next" aria-label="Next Review">&#8594;</button>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
   <iframe 
     class="fullwidth-map"
     src="https://www.google.com/maps?q=550+East+Lexington+Road,+Danville,+KY+40422&output=embed" 
     allowfullscreen="" 
-    loading="lazy" 
+    loading="lazy"
     referrerpolicy="no-referrer-when-downgrade">
   </iframe>
   <footer class="footer-bar fade-in-section">
-    &copy; 2025 Lexington Road Laser Wash | All Rights Reserved
+    <a href="tel:8592651635" class="footer-btn left-btn" aria-label="Call Now!">Call Now!</a>
+    <span class="footer-center-text">&copy; 2025 Lexington Road Laser Wash | All Rights Reserved</span>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=550+East+Lexington+Road,+Danville,+KY+40422" target="_blank" rel="noopener" class="footer-btn right-btn" aria-label="Get Directions!">Get Directions!</a>
   </footer>
   <script>
     // Fade-in on scroll
@@ -451,7 +601,7 @@
         }, 7000);
       }
 
-      // Shrink header on scroll
+      // Shrink header on scroll and show OPEN 24/7!
       document.addEventListener('scroll', function() {
         const header = document.querySelector('header');
         if(window.scrollY > 50) {
