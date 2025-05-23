@@ -97,7 +97,6 @@
       transition: font-size 0.3s;
       margin-left: 2rem;
       align-self: flex-start;
-      flex: 1 0 auto;
       order: 3;
       padding-left: 2rem;
       line-height: 1.5;
@@ -191,11 +190,12 @@
     .feature {
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 16px rgba(0, 102, 204, 0.12), 0 2px 8px rgba(0,0,0,0.08); /* Blue glow + subtle shadow */
       padding: 1.5rem 2rem;
       flex: 1 1 200px;
       text-align: center;
       font-size: 1.9rem;
+      border: 3px solid #0066cc; /* Blue border */
     }
     .feature h3 {
       margin-top: 0;
@@ -215,7 +215,7 @@
     .info-box {
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 16px rgba(255, 0, 0, 0.12), 0 2px 8px rgba(0,0,0,0.08); /* Red glow + subtle shadow */
       padding: 1.5rem 2rem;
       max-width: 900px;
       margin: 1rem auto;
@@ -223,6 +223,7 @@
       line-height: 2.1;
       text-align: center;
       position: relative;
+      border: 3px solid red;
     }
     .stars {
       color: #FFD700;
@@ -546,7 +547,7 @@
   <footer class="footer-bar fade-in-section">
     <a href="tel:8592651635" class="footer-btn left-btn" aria-label="Call Now!">Call Now!</a>
     <span class="footer-center-text">&copy; 2025 Lexington Road Laser Wash | All Rights Reserved</span>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=550+East+Lexington+Road,+Danville,+KY+40422" target="_blank" rel="noopener" class="footer-btn right-btn" aria-label="Get Directions!">Get Directions!</a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=550+East+Lexington+Road,+Danville,+KY+40422" target="_blank" rel="noopener" class="footer-btn right-btn" aria-label="Get Directions">Get Directions</a>
   </footer>
   <script>
     // Fade-in on scroll
