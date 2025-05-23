@@ -12,15 +12,15 @@
       color: #003366;
       font-size: 2rem;
       background: #fff;
-      padding-bottom: 140px; /* Ensures content isn't hidden behind footer */
+      padding-bottom: 140px;
     }
     header {
       background: #004080;
       color: white;
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      flex-wrap: nowrap;
       padding: 1.5rem 2rem;
       position: sticky;
       top: 0;
@@ -29,22 +29,31 @@
       width: 100%;
       box-sizing: border-box;
     }
+    .header-logo-col {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
     .header-title-row {
+      flex: 1 1 auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      flex: 2 1 0%;
+      min-width: 0;
+      position: relative;
+      text-align: center;
     }
     .open247-badge {
-      display: none;
+      display: none !important;
+      opacity: 0 !important;
       font-size: 2.4rem;
       font-weight: bold;
       letter-spacing: 2px;
       margin: 0 1.2rem;
       white-space: nowrap;
       transition: margin 0.3s, font-size 0.3s, opacity 0.3s;
-      opacity: 0;
+      color: white;
     }
     .pulsate247 {
       font-weight: bold;
@@ -52,68 +61,34 @@
       transition: color 0.4s;
       display: inline-block;
     }
+    .left-badge {
+      margin-left: 2.5em !important;
+    }
     header.shrink .open247-badge {
-      display: inline-block;
+      display: inline-block !important;
+      opacity: 1 !important;
       margin: 0 0.3rem;
       font-size: 2.7rem;
-      opacity: 1;
     }
     @keyframes pulse247 {
       0% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.18); opacity: 0.65; }
       100% { transform: scale(1); opacity: 1; }
     }
-    header h1 {
-      margin: 0;
-      font-size: 6rem;
-      text-align: center;
-      flex: 0 1 100%;
-      user-select: none;
-      transition: font-size 0.3s;
-      min-width: 0;
-      background: none;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-      justify-content: center;
-      display: flex;
-      align-items: center;
-    }
-    header.shrink h1 {
-      font-size: 4rem;
-    }
-    @media (max-width: 700px) {
-      .header-title-row {
-        flex-direction: column;
-      }
-      .open247-badge {
-        font-size: 1.8rem;
-        margin: 0.5rem 0;
-      }
-      header.shrink .open247-badge {
-        font-size: 2rem;
-      }
-      header h1 {
-        font-size: 3rem;
-      }
-      header.shrink h1 {
-        font-size: 2rem;
-      }
-    }
     .contact-info {
+      flex: 0 0 auto;
       text-align: right;
       font-size: 1.4rem;
       min-width: 220px;
       word-break: break-word;
-      transition: opacity 0.4s, visibility 0.4s;
       margin-left: 2rem;
       align-self: flex-start;
-      order: 3;
       padding-left: 2rem;
       line-height: 1.5;
       opacity: 1;
       visibility: visible;
+      display: block;
+      transition: opacity 0.4s, visibility 0.4s;
     }
     .contact-info.hide-on-scroll {
       opacity: 0;
@@ -136,7 +111,27 @@
       box-shadow: 0 0 0 2px white;
       display: block;
       min-width: 120px;
-      /* No shrinking on scroll! */
+      margin-right: 0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 6rem;
+      text-align: center;
+      flex: 0 1 100%;
+      user-select: none;
+      transition: font-size 0.3s;
+      min-width: 0;
+      background: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+    }
+    header.shrink h1 {
+      font-size: 4rem;
     }
     @media (max-width: 1000px) {
       header {
@@ -145,26 +140,53 @@
         gap: 1rem;
         text-align: center;
       }
+      .header-logo-col,
       .contact-info {
-        text-align: center;
         align-self: center;
         margin-left: 0;
-        margin-top: 1rem;
-        order: 4;
+        margin-right: 0;
         padding-left: 0;
+        padding-right: 0;
+      }
+      .header-title-row {
+        width: 100%;
       }
       .logo-img {
         margin-bottom: 0.5rem;
       }
+    }
+    @media (max-width: 700px) {
       .header-title-row {
         flex-direction: column;
-        width: 100%;
+      }
+      .open247-badge {
+        font-size: 1.8rem;
+        margin: 0.5rem 0;
+      }
+      header.shrink .open247-badge {
+        font-size: 2rem;
+      }
+      header h1 {
+        font-size: 3rem;
+      }
+      header.shrink h1 {
+        font-size: 2rem;
+      }
+      .footer-bar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem 0;
+      }
+      .footer-btn {
+        margin: 0.1rem 0;
+        width: 92vw;
+        max-width: 360px;
+      }
+      .footer-center-text {
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
       }
     }
-    header.shrink {
-      padding: 0.5rem 2rem;
-    }
-    /* No shrinking of .logo-img */
     .wave-divider {
       background: url('https://svgshare.com/i/uUe.svg') no-repeat center;
       background-size: cover;
@@ -447,22 +469,6 @@
     .right-btn {
       order: 2;
     }
-    @media (max-width: 700px) {
-      .footer-bar {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1.2rem 0;
-      }
-      .footer-btn {
-        margin: 0.1rem 0;
-        width: 92vw;
-        max-width: 360px;
-      }
-      .footer-center-text {
-        font-size: 1.5rem;
-        padding: 0.5rem 0;
-      }
-    }
     .fade-in-section {
       opacity: 0;
       transform: translateY(40px);
@@ -473,7 +479,6 @@
       opacity: 1;
       transform: none;
     }
-    /* Pulsate and color for TOUCH FREE! */
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.18); opacity: 0.65; }
@@ -491,9 +496,11 @@
 </head>
 <body>
   <header class="fade-in-section">
-    <img src="Laser Wash Logo.png" alt="Laser Wash Logo" class="logo-img">
+    <div class="header-logo-col">
+      <img src="Laser Wash Logo.png" alt="Laser Wash Logo" class="logo-img">
+    </div>
     <div class="header-title-row">
-      <span class="open247-badge pulsate247" aria-label="Open 24/7!">&nbsp;&nbsp;OPEN 24/7!</span>
+      <span class="open247-badge pulsate247 left-badge" aria-label="Open 24/7!">OPEN 24/7!</span>
       <h1>Lexington Road Laser Wash</h1>
       <span class="open247-badge pulsate247" aria-label="Open 24/7!">OPEN 24/7!</span>
     </div>
@@ -545,7 +552,6 @@
       </div>
     </div>
   </section>
-  <!-- Old Glory Red background from below Wash Menu to Map -->
   <div class="old-glory-red-bg">
     <section class="fade-in-section google-reviews-inner">
       <h2 class="reviews-title">Satisfied Customers</h2>
@@ -697,23 +703,20 @@
           footer.classList.remove('visible-footer');
         }
 
-        // Animate TOUCH FREE! color as you scroll
-        const touchFreeColors = ['#FFD700', '#B31942', '#0066cc', '#00cc66', '#FF6600'];
+        // Animate only TOUCH FREE! with red, white, blue
+        const touchFreeColors = ['#B31942', '#ffffff', '#0066cc'];
         const scrollY = window.scrollY;
         const maxScroll = document.body.scrollHeight - window.innerHeight;
         const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
         document.querySelectorAll('.touchfree').forEach((el, i) => {
-          const colorIdx = Math.floor((progress * 5 + i) % touchFreeColors.length);
+          const colorIdx = Math.floor((progress * 3 + i) % touchFreeColors.length);
           el.style.color = touchFreeColors[colorIdx];
         });
-        // Animate OPEN 24/7! color as you scroll
-        document.querySelectorAll('.pulsate247').forEach((el, i) => {
-          const colorIdx = Math.floor((progress * 5 + i) % touchFreeColors.length);
-          el.style.color = touchFreeColors[colorIdx];
-        });
+
+        // DO NOT animate color for OPEN 24/7!
       });
 
-      // Set initial color for TOUCH FREE! and OPEN 24/7! in case page loads scrolled
+      // Set initial color for TOUCH FREE! in case page loads scrolled
       window.dispatchEvent(new Event('scroll'));
     });
   </script>
