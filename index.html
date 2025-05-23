@@ -30,10 +30,33 @@
       box-sizing: border-box;
     }
     .header-logo-col {
-      flex: 0 0 auto;
+      order: 0;
+      transition: order 0.4s, justify-content 0.4s;
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      flex: 0 0 auto;
+    }
+    .logo-img {
+      height: 180px;
+      width: 180px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: white;
+      padding: 6px;
+      box-shadow: 0 0 0 2px white;
+      display: block;
+      min-width: 120px;
+      margin-right: 0;
+      transition: height 0.4s, width 0.4s;
+    }
+    header.shrink .logo-img {
+      height: 90px;
+      width: 90px;
+    }
+    header.shrink .header-logo-col {
+      order: 2;
+      justify-content: flex-end;
     }
     .header-title-row {
       flex: 1 1 auto;
@@ -89,29 +112,19 @@
       visibility: visible;
       display: block;
       transition: opacity 0.4s, visibility 0.4s;
+      order: 2;
     }
     .contact-info.hide-on-scroll {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+      display: none !important;
     }
     .contact-info::before {
       content: "Contact Info\a";
       white-space: pre;
       font-weight: bold;
       display: block;
-    }
-    .logo-img {
-      height: 180px;
-      width: 180px;
-      object-fit: contain;
-      border-radius: 50%;
-      background: white;
-      padding: 6px;
-      box-shadow: 0 0 0 2px white;
-      display: block;
-      min-width: 120px;
-      margin-right: 0;
     }
     header h1 {
       margin: 0;
@@ -154,6 +167,10 @@
       .logo-img {
         margin-bottom: 0.5rem;
       }
+      header.shrink .header-logo-col {
+        order: 0;
+        justify-content: center;
+      }
     }
     @media (max-width: 700px) {
       .header-title-row {
@@ -185,6 +202,10 @@
       .footer-center-text {
         font-size: 1.5rem;
         padding: 0.5rem 0;
+      }
+      header.shrink .header-logo-col {
+        order: 0;
+        justify-content: center;
       }
     }
     .wave-divider {
@@ -712,7 +733,6 @@
           const colorIdx = Math.floor((progress * 3 + i) % touchFreeColors.length);
           el.style.color = touchFreeColors[colorIdx];
         });
-
         // DO NOT animate color for OPEN 24/7!
       });
 
